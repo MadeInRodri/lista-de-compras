@@ -11,7 +11,7 @@ export default function Footer({
   setListaProductos,
 }) {
   return (
-    <footer className=" items-center justify-around flex h-[10vh]">
+    <footer className=" items-center justify-around flex h-[15vh]">
       <BtnPopup display={display} setDisplay={setDisplay}></BtnPopup>
       <TextTotal total={total}></TextTotal>
       <BtnLimpiar

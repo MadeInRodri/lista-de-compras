@@ -8,6 +8,7 @@ export default function BtnLimpiar({ setListaProductos, setTotal }) {
       onClick={() => {
         Swal.fire({
           title: "Estás seguro de que quieres limpiar el carrito?",
+          icon: "warning",
           showDenyButton: true,
           confirmButtonText: "Limpiar",
           denyButtonText: `Cancelar`,
@@ -16,9 +17,19 @@ export default function BtnLimpiar({ setListaProductos, setTotal }) {
           if (result.isConfirmed) {
             setListaProductos([]);
             setTotal(0);
-            Swal.fire("El Carrito ha sido limpiado", "", "success");
+            Swal.fire({
+              title: "El carrito ha sido limpiado",
+              icon: "success",
+              timer: 1500,
+              timerProgressBar: true,
+            });
           } else if (result.isDenied) {
-            Swal.fire("No se ha limpiado el carrito", "", "info");
+            Swal.fire({
+              title: "No se ha limpiado el carrito",
+              icon: "info",
+              timer: 1500,
+              timerProgressBar: true,
+            });
           }
         });
       }}
