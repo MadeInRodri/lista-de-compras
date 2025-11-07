@@ -5,7 +5,7 @@ import BtnPopup from "./components/BtnPopup";
 import ContenedorProductos from "./components/ContenedorProductos";
 import Header from "./components/Header";
 import TextTotal from "./components/TextTotal";
-
+import Footer from "./components/Footer";
 function App() {
   const [display, setDisplay] = useState("hidden");
   const [listaProductos, setListaProductos] = useState(() => {
@@ -23,11 +23,11 @@ function App() {
   }, [listaProductos, total]);
 
   return (
-    <>
+    <div className="h-[100dvh] flex flex-col justify-between">
       <Header></Header>
-      <main className="flex h-[90vh] bg-white rounded-t-3xl ">
-        <BtnPopup display={display} setDisplay={setDisplay}></BtnPopup>
-        <TextTotal total={total}></TextTotal>
+      <main className="flex bg-white rounded-t-3xl h-[100%] overflow-y-auto ">
+        {/* <BtnPopup display={display} setDisplay={setDisplay}></BtnPopup>
+        <TextTotal total={total}></TextTotal> */}
         <Popup
           display={display}
           setDispay={setDisplay}
@@ -43,7 +43,14 @@ function App() {
           total={total}
         ></ContenedorProductos>
       </main>
-    </>
+      <Footer
+        display={display}
+        setDisplay={setDisplay}
+        total={total}
+        setTotal={setTotal}
+        setListaProductos={setListaProductos}
+      ></Footer>
+    </div>
   );
 }
 

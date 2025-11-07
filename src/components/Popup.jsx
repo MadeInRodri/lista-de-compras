@@ -11,22 +11,26 @@ export default function Popup({
 }) {
   const { register, handleSubmit, reset } = useForm();
   const registrarProducto = (data) => {
-    let miTotal = data.precio * data.cantidad;
+    let cantidadValida =
+      !isNaN(data.cantidad) && data.cantidad > 0 ? data.cantidad : 1;
+    let miTotal = data.precio * cantidadValida;
+
     setListaProductos([
       ...listaProductos,
       {
         producto: data.producto,
         precio: data.precio,
-        cantidad: data.cantidad,
-        total: miTotal.toFixed(2),
+        cantidad:
+          !isNaN(data.cantidad) && data.cantidad > 0 ? data.cantidad : 1,
+        total: parseFloat(miTotal.toFixed(2)),
       },
     ]);
     reset();
-    setTotal(total + data.precio * data.cantidad);
+    setTotal(total + parseFloat(miTotal.toFixed(2)));
     setDispay("hidden");
   };
   return (
-    <section className="absolute w-dvw h-[90vh] flex justify-center items-center">
+    <section className="absolute top-0 h-[100vh] w-dvw flex justify-center items-center">
       <form
         className={
           display + " z-20 flex-col gap-3 p-5 m-5 bg-gray-800 rounded-lg"
@@ -50,7 +54,7 @@ export default function Popup({
             step="any"
             min="0"
             className="bg-amber-50 col-span-2 text-black p-1 rounded-sm"
-            {...register("precio")}
+            {...register("precio", { valueAsNumber: true })}
           ></input>
         </article>
         <article className="grid grid-cols-3">
@@ -58,8 +62,10 @@ export default function Popup({
           <input
             required
             type="number"
+            step="1"
+            min="0"
             className="bg-amber-50 col-span-2 text-black p-1 rounded-sm"
-            {...register("cantidad")}
+            {...register("cantidad", { valueAsNumber: true })}
           ></input>
         </article>
         <button
