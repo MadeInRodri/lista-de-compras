@@ -9,7 +9,6 @@ export default function BtnLimpiar({ setListaProductos, setTotal }) {
         Swal.fire({
           title: "Estás seguro de que quieres limpiar el carrito?",
           showDenyButton: true,
-          showCancelButton: true,
           confirmButtonText: "Limpiar",
           denyButtonText: `Cancelar`,
         }).then((result) => {
