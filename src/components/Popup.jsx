@@ -30,10 +30,11 @@ export default function Popup({
     setDispay("hidden");
   };
   return (
-    <section className="absolute top-0 h-[100vh] w-dvw flex justify-center items-center">
+    <section className="absolute top-0 h-[100vh] w-dvw flex justify-center items-center ">
       <form
         className={
-          display + " z-20 flex-col gap-3 p-5 m-5 bg-gray-800 rounded-lg"
+          display +
+          " z-20 flex-col gap-3 p-5 m-5 bg-gray-800 rounded-lg border-2 border-amber-50"
         }
         onSubmit={handleSubmit((data) => registrarProducto(data))}
       >
