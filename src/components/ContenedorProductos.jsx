@@ -7,7 +7,7 @@ export default function ContenedorProductos({
   total,
 }) {
   return (
-    <section className=" w-dvw m-2 flex flex-col sm:justify-center sm:flex-wrap sm:flex-row gap-3 overflow-y-auto z-10">
+    <section className=" w-dvw p-2 flex flex-col sm:justify-center  sm:flex-wrap sm:flex-row gap-3 overflow-y-auto z-10">
       {listaProductos.length === 0 ? (
         <p className="text-center text-gray-500 text-lg font-medium mt-5">
           Tu carrito está vacío, ¡agrega algún producto!
@@ -16,7 +16,7 @@ export default function ContenedorProductos({
         listaProductos.map((producto, index) => (
           <article
             key={index}
-            className=" flex bg-gray-800 sm:h-min sm:w-[20rem] flex-col px-5 p-3 gap-2 border-2 rounded-xl text-lg"
+            className=" flex bg-gray-800  sm:h-min sm:w-[20rem] flex-col px-5 p-3 gap-2 border-2 rounded-xl text-lg"
           >
             <p className="text-center font-semibold text-2xl">
               {producto.producto}

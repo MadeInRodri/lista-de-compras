@@ -25,7 +25,7 @@ function App() {
   return (
     <div className="h-[100dvh] flex flex-col justify-between">
       <Header></Header>
-      <main className="flex bg-white rounded-t-3xl h-[100%] overflow-y-auto ">
+      <main className="flex bg-white rounded-xl h-[100%] overflow-y-auto ">
         {/* <BtnPopup display={display} setDisplay={setDisplay}></BtnPopup>
         <TextTotal total={total}></TextTotal> */}
         <Popup

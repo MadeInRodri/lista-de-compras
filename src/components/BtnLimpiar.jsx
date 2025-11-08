@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 export default function BtnLimpiar({ setListaProductos, setTotal }) {
   return (
     <button
-      className="w-min px-4 py-2 h-min bg-rose-500 text-white text-xl rounded-xl z-20 active:opacity-25 transition flex items-center justify-center"
+      className="w-min px-3 py-2 h-min bg-rose-500 text-white text-xl rounded-xl z-20 active:opacity-25 transition flex items-center justify-center"
       onClick={() => {
         Swal.fire({
           title: "Estás seguro de que quieres limpiar el carrito?",
